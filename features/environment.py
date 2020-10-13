@@ -9,7 +9,7 @@ def before_scenario(context, scenario):
 
 
 def after_scenario(context, scenario):
-    if ('POST' in scenario.name) or ('PUT' in scenario.name) or ('GETDELETE' in scenario.name):
+    if ('POST' in scenario.name) or ('PUT' in scenario.name) or ('specific' in scenario.name):
         delete_resource(context, response_text['RESP_TEXT'])
     else:
         pass
