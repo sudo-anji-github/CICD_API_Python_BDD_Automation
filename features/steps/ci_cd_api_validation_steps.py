@@ -26,6 +26,21 @@ def post_result(context, status):
 def post_text(context, resp_text):
     assert resp_text in response_text['RESP_TEXT'], "The response code is "+str(response_code['RESP_TEXT'])+". Should be "+resp_text
 
+#GET specific resource steps
+@when("the user sends the GET request to get the specific resource")
+def get_req(context):
+    index = re.findall(r'\d+', response_text['RESP_TEXT'])
+    api_end_points['GET_RESOURCE_URL'] = api_end_points['GET_URL'] + "/" + index[0]
+    response = requests.get(url=api_end_points['GET_RESOURCE_URL'], verify=False, headers=request_headers)
+    response_code['GET_RESP_CODE'] = response.status_code
+    response_text['GET_RESP_TEXT'] = response.text
+
+
+@then("the GET response text should include '{resource}' resource")
+def get_include(context, resource):
+    assert resource in response_text['GET_RESP_TEXT'], "The response code is " + str(response_code['GET_RESP_TEXT']) + ". Should be " + resource
+
+
 
 #GET operation steps
 @given("the user gather the GET request url")
@@ -40,7 +55,7 @@ def get_req(context):
     response_text['GET_RESP_TEXT'] = response.text
 
 
-@then("the user gets the GET response status code  as {status}")
+@then("the user gets the GET response status code as {status}")
 def result(context, status):
     assert response_code['GET_RESP_CODE'] is int(status), "The response code is "+str(response_code['GET_RESP_CODE'])+". Should be "+status
 
