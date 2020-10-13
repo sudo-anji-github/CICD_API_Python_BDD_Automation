@@ -10,14 +10,22 @@ Feature: CI/CD API Testing Automation using Python BDD framework
 
 
   @test2
-  Scenario: Perform GET operation to get the resources
-    Given the user gather the GET request url
-    When the user sends the GET request
-    Then the user gets the GET response status code  as 200
-    And the response text should not be empty
+  Scenario: Perform GET operation to get the specific resource (GETDELETE)
+    Given the user creates the resource with the data value as 'Cucumber'
+    When the user sends the GET request to get the specific resource
+    Then the user gets the GET response status code as 200
+    And the GET response text should include 'Cucumber' resource
 
 
   @test3
+  Scenario: Perform GET operation to get the all resources
+    Given the user gather the GET request url
+    When the user sends the GET request
+    Then the user gets the GET response status code as 200
+    And the response text should not be empty
+
+
+  @test4
   Scenario: Perform PUT operation to update the resource
     Given the user creates the resource with the data value as 'Cucucmber'
     When the user sets the request body to update 'Cucumber' value as 'Behave'
@@ -26,11 +34,10 @@ Feature: CI/CD API Testing Automation using Python BDD framework
     And the PUT response text should include 'Behave'
 
 
-  @test4
+  @test5
   Scenario: Perform Delete operation to delete the resource
     Given the user creates the resource with the data value as 'Cucucmber'
     When the user sends the DELETE request to delete the created resource
     Then the user gets the DELETE response status code as 202
     And the DELETE response text should include 'Cucucmber deleted successfully'
-
-
+    
