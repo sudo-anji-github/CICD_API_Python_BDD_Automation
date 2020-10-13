@@ -10,7 +10,7 @@ Feature: CI/CD API Testing Automation using Python BDD framework
 
 
   @test2
-  Scenario: Perform GET operation to get the specific resource (GETDELETE)
+  Scenario: Perform GET operation to get the specific resource
     Given the user creates the resource with the data value as 'Cucumber'
     When the user sends the GET request to get the specific resource
     Then the user gets the GET response status code as 200
@@ -40,4 +40,3 @@ Feature: CI/CD API Testing Automation using Python BDD framework
     When the user sends the DELETE request to delete the created resource
     Then the user gets the DELETE response status code as 202
     And the DELETE response text should include 'Cucucmber deleted successfully'
-    
