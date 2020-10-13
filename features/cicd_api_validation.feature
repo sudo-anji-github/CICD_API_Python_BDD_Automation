@@ -40,5 +40,4 @@ Feature: CI/CD API Testing Automation using Python BDD framework
     When the user sends the DELETE request to delete the created resource
     Then the user gets the DELETE response status code as 202
     And the DELETE response text should include 'Cucucmber deleted successfully'
-
-
+    
