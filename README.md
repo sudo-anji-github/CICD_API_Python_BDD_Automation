@@ -1,6 +1,6 @@
 # CICD_API_Python_BDD_Automation
 
-##Steps to take this code in your machine
+## Steps to take this code in your machine
 
 Clone this project using: git clone: git clone https://github.com/sudo-anji-github/CICD_API_Python_BDD_Automation.git
 
