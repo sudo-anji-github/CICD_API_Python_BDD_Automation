@@ -19,7 +19,7 @@ Once cloning is done, we need to navigate "CICD_API_Python_BDD_Automation" folde
     - allure-behave
 
 ## Scenario execution:
-### To run the all the scenarios:
+### To run all the scenarios:
 
 - ~/CICD_API_Python_BDD_Automation/features behave cicd_api_validation.feature
 
